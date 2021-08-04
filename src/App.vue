@@ -1,18 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <clock v-model="time" />
+    <clock :value="s_time" @setSecondCurrentTime="s_time = $event" />
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Clock from './components/Clock.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Clock
+  },
+  data() {
+    return {
+      timer: '',
+      counter: 0,
+      time: {
+        hours: "00",
+        minutes: "00"
+      },
+      
+      s_time: {
+        hours: "00",
+        minutes: "00"
+      }
+    }
+  }   
 }
 </script>
 
